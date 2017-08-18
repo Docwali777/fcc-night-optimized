@@ -29,7 +29,7 @@ class App extends Component{
             <Route exact path='/' component={Form_For_Location} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <Route path='/login' component={this.props.user == null ? Login : Form_For_Location} />
+            <Route path='/login' component={this.props.user === null ? Login : Form_For_Location} />
             <Route path='/logout' component={About} />
         </div>
         </div>

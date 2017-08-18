@@ -32,7 +32,7 @@ this.props.isNotGoing(this.props.id)
 }
 
 ifLoggedin =() =>{
-if(this.props.user !== ""){
+if(this.props.user !== null){
 return(
 <div>
   <Button disabled={this.state.likes == 0 ? true: false} onClick={()=>this.isNotGoing()} bsStyle='danger' bsSize='xsmall'> - </Button>
