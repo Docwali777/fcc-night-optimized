@@ -25,12 +25,11 @@ this.props.logOut()
 }
 
   render(){
-    console.log(this.props.user);
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-       <Link to="/">Let's Go Out</Link>
+       <a href="/">Let's Go Out</a>
      </Navbar.Brand>
 
      <Navbar.Toggle />

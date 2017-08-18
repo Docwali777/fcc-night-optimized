@@ -2,7 +2,7 @@ export default function goingReducer(state= {going: []}, action){
   switch(action.type){
 
     case 'INITIAL_STATE':
-    return [...state.going,...action.payload]
+    return action.payload
     break
 
     case 'POST_IS_GOING':
