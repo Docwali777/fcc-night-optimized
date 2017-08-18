@@ -10,6 +10,10 @@ class Business_Listings extends Component {
       this.props.initialState()
   }
 
+  componentWillMount() {
+      this.props.initialState()
+  }
+
   empty = () => {
     return (
       <div>Search</div>
