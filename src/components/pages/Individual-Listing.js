@@ -12,12 +12,9 @@ class Listing extends Component {
       }
   }
 
-shouldComponentUpdate(){
-  return true
-}
 
 
-componentWillMount(){
+componentDidMount(){
 this.setGoingStatus()
 }
 

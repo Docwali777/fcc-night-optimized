@@ -33,11 +33,12 @@ class Business_Listings extends Component {
   }
 
   render() {
-    if (this.props.searchReturn[0] === undefined) {
+    console.log('THIS PROPS',this.props.searchReturn);
+    if (this.props.searchReturn[0]) {
+return this.viewListingsWithPeopleGoing()
 
-      return this.empty()
     } else {
-      return this.viewListingsWithPeopleGoing()
+  return this.empty()
     }
 
 }
