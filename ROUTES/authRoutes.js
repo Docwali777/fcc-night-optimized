@@ -11,7 +11,7 @@ module.exports = (app) => {
         console.log('TYPEOF',typeof user);
         console.log(req.user);
         if(user){
-          
+
           return res.send(user)
         }
       })
