@@ -14,7 +14,6 @@ class Listing extends Component {
 componentDidMount(){
 this.setGoingStatus()
 }
-
 setGoingStatus =() =>{
 this.props.going.map(i =>{
 if(i.id == this.props.id){
