@@ -20,7 +20,7 @@ export function isGoing(going) {
 
 export function isNotGoing(going) {
   return dispatch => {
-    axios.post('/api/yelp/isNotGoing', going).then(whoIsGoing => {
+    axios.post('/api/yelp/isNotGoing', {going}).then(whoIsGoing => {
       dispatch({type: 'IS_NOT_GOING', payload: whoIsGoing.data})
     }).catch(e => console.log('error posting api/yelp/going', e))
   }

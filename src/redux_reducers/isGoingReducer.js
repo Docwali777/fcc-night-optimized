@@ -2,6 +2,7 @@ export default function goingReducer(state= {going: []}, action){
   switch(action.type){
 
     case 'INITIAL_STATE':
+    console.log('INITIAL_STATE',action.payload);
     return action.payload
     break
 

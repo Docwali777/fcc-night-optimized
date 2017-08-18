@@ -9,9 +9,6 @@ import * as actions from '../../redux_actions/yelpSearches'
 
 class Menu extends Component{
 
-componentDidMount(){
-  console.log('USER',this.props.user);
-}
 loggedIn = () =>{
   if(this.props.user === null){
     return <NavItem  href="/login">Login</NavItem>
@@ -24,12 +21,17 @@ logout = () =>{
 this.props.logOut()
 }
 
+initialState = () =>{
+  this.props.initialState()
+}
+
   render(){
+
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-       <a href="/">Let's Go Out</a>
+       <Link onClick={()=>this.initialState()} to="/">Let's Go Out</Link>
      </Navbar.Brand>
 
      <Navbar.Toggle />
