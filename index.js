@@ -50,7 +50,7 @@ app.use(passport.session());
 
 //ROUTES
 require('./ROUTES/api_yelp_search')(app)
-// require('./ROUTES/authRoutes')(app)
+require('./ROUTES/authRoutes')(app)
 
 const User = require('./MODELS/user')
 passport.serializeUser(User.serializeUser());
