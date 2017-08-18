@@ -11,9 +11,17 @@ class Listing extends Component {
         isGoing: false
       }
   }
-componentDidMount(){
+
+shouldComponentUpdate(){
+  return true
+}
+
+
+componentWillMount(){
 this.setGoingStatus()
 }
+
+
 setGoingStatus =() =>{
 this.props.going.map(i =>{
 if(i.id == this.props.id){

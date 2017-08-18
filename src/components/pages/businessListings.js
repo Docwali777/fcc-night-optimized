@@ -33,7 +33,7 @@ class Business_Listings extends Component {
   }
 
   render() {
-    if (this.props.searchReturn === null) {
+    if (this.props.searchReturn[0] === undefined) {
 
       return this.empty()
     } else {

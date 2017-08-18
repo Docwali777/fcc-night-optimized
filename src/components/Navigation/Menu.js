@@ -21,8 +21,9 @@ return  <NavItem onClick={()=>this.logout()} href="/logout">Logout</NavItem>
 logout = () =>{
 this.props.logOut()
 }
-initialState = () =>{
-this.props.initialState()
+
+updateStateOfGoing = () =>{
+
 }
 
   render(){
@@ -31,7 +32,9 @@ this.props.initialState()
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-       <Link onClick={this.props.initialState()} to="/">Let's Go Out</Link>
+      <LinkContainer to='/'>
+         <NavItem onClick={this.updateStateOfGoing()} to="/">Let's Go Out</NavItem>
+      </LinkContainer>
      </Navbar.Brand>
 
      <Navbar.Toggle />

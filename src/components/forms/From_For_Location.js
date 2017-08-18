@@ -27,7 +27,7 @@ constructor(props){
     return(
       <div>
         <div>
-            <a href='/auth/google'>Register</a>
+            <a href='/'>New Search</a>
         </div>
         <form onSubmit={this.formData}>
           <div className='form-group'>
