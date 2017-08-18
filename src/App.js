@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router, Route } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import Menu from './components/Navigation/Menu'
@@ -15,6 +17,7 @@ import Login from './components/pages/Login'
 class App extends Component{
 
   render(){
+    console.log('APP',this.props.user);
     return(
       <div>
 
@@ -26,7 +29,8 @@ class App extends Component{
             <Route exact path='/' component={Form_For_Location} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <Route path='/login' component={Login} />
+            <Route path='/login' component={this.props.user == null ? Login : Form_For_Location} />
+            <Route path='/logout' component={About} />
         </div>
         </div>
       </Router>
@@ -34,4 +38,11 @@ class App extends Component{
     )
   }
 }
-export default App
+
+function mapStateToProps(state){
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App)

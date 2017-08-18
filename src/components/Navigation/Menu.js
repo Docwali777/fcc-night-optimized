@@ -25,6 +25,7 @@ this.props.logOut()
 }
 
   render(){
+    console.log(this.props.user);
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
