@@ -16,8 +16,12 @@ loggedIn = () =>{
   if(this.props.user === null){
     return <NavItem  href="/login">Login</NavItem>
   }
-return  <LinkContainer to='/logout'><NavItem href="/logout">Logout</NavItem></LinkContainer>
+return  <NavItem onClick={()=>this.logout()} href="/logout">Logout</NavItem>
 
+}
+
+logout = () =>{
+this.props.logOut()
 }
 
   render(){
@@ -41,7 +45,7 @@ return  <LinkContainer to='/logout'><NavItem href="/logout">Logout</NavItem></Li
       </LinkContainer>
      </Nav>
      <Nav pullRight>
-       
+
       <LinkContainer to={this.props.user == null ? '/login' : '/logout'} >
           {this.loggedIn()}
       </LinkContainer>

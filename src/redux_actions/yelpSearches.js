@@ -39,11 +39,30 @@ export function initialState(){
       })
   }
 }
-export function userSignedIn(){
+export function userSignedIn(user){
   return dispatch =>{
-    axios.post('/login')
+    axios.post('/register', user)
       .then(user =>{
+        console.log(user.data);
+        if(user.data.message){
+        return   console.log('there was an error with loggin in');
+
+        }
         dispatch({type: 'USER_SIGNED_IN', payload: user.data})
+      })
+  }
+}
+export function logOut(){
+  return dispatch =>{
+    axios.get('/logout')
+      .then(log =>{
+        console.log(log);
+        dispatch({
+          type: 'LOGGING_OUT',
+          payload: log
+        })
+      }).catch(e =>{
+        console.log('error loggin out');
       })
   }
 }

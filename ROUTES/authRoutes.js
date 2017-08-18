@@ -5,17 +5,23 @@ module.exports = (app) => {
 
   //post to register Page
   app.post('/register', (req, res) => {
-    User.register(new naUser({username: req.body.username}), req.body.password, (err, user) => {
-      if (err) {console.log('Err post new user', err)}
+    User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
+      if (err) {res.send(err)}
       passport.authenticate('local')(req, res, () => {
-        res.send(req.user)
+        console.log('TYPEOF',typeof user);
+        console.log(req.user);
+        if(user){
+          
+          return res.send(user)
+        }
       })
     })
   })
 
   //post to login
-  app.get('/login', (req, res)=>{
+  app.post('/login', (req, res)=>{
     passport.authenticate('local')(req, res, ()=>{
+
       res.send(req.user)
     })
   })

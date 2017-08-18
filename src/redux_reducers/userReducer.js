@@ -4,6 +4,10 @@ export default function userReducer(state = null, action){
     return action.payload
     break;
 
+case 'LOGGING_OUT':
+return null;
+break;
+
     default:
     return state
   }
