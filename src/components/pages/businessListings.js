@@ -17,9 +17,9 @@ class Business_Listings extends Component {
   }
 
   viewListingsWithPeopleGoing = () => {
-
     return (
       <div>
+        New Search
         {this.props.searchReturn.map(i => {
           return (
             <div key={i.id}>

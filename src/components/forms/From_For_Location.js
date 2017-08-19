@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Business_Listings from '../pages/businessListings'
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 import * as actions from '../../redux_actions/yelpSearches'
@@ -11,7 +12,8 @@ constructor(props){
   this.state = {
     city_state: '',
     term: '',
-    search: ''
+    search: '',
+    display: false
   }
 }
 
@@ -20,64 +22,50 @@ constructor(props){
   }
   formData = (e) =>{
     e.preventDefault()
-this.setState({search: `${this.state.city_state}`})
+this.setState({search: `${this.state.city_state}`, display: !this.state.display})
     this.props.search(this.state)
 
   }
 
-listingsOfNewSearch = () =>{
-  if(this.props.searchReturn !== undefined){
-    return (
-      <div>
-          <a href='/'>New Search</a>
-      </div>
-    )
-  }
-  return (
-    <form onSubmit={this.formData}>
-      <div className='form-group'>
-        <input
-          className='form-control'
-          placeholder= 'search by city,state'
-          onChange={this.search}
-          name='city_state'
-          value={this.state.city_state}
-        />
-      </div>
-
-      <div className='form-group'>
-        <input
-          className='form-control'
-          placeholder= 'Search Term'
-          onChange={this.search}
-          name='term'
-          value={this.state.term}
-        />
-      </div>
-
-      <button className='btn btn-success'>Sumit</button>
-    </form>
-
-  )
+display = () =>{
+  this.setState({display: !this.state.display})
+  this.props.initialState()
 }
 
   render(){
-    console.log('MENU',this.props.searchReturn);
     return(
       <div>
-          {this.listingsOfNewSearch()}
+      { this.state.display ?  <div>
+            <Link to='/'><button onClick={()=> this.display()} >New Search</button></Link>
+        </div> :
+        <form onSubmit={this.formData}>
+          <div className='form-group'>
+            <input
+              className='form-control'
+              placeholder= 'search by city,state'
+              onChange={this.search}
+              name='city_state'
+              value={this.state.city_state}
+            />
+          </div>
 
-              {this.state.city_state !== '' ? <p>Searches in {this.state.search} </p> : false}
+          <div className='form-group'>
+            <input
+              className='form-control'
+              placeholder= 'Search Term'
+              onChange={this.search}
+              name='term'
+              value={this.state.term}
+            />
+          </div>
+
+          <button className='btn btn-success'>Sumit</button>
+        </form>}
+        {this.state.city_state !== '' ? <p>Searches in {this.state.search} </p> : false}
         <hr />
         <Business_Listings />
       </div>
     )
   }
 }
-function mapStateToProps(state){
-  return {
-    searchReturn: state.business[0]
-  }
-}
-
-export default connect(mapStateToProps, actions)(Form_For_Location)
+export default connect(null, actions)(Form_For_Location)
