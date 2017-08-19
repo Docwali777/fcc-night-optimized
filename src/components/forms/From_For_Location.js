@@ -22,8 +22,9 @@ constructor(props){
   }
   formData = (e) =>{
     e.preventDefault()
-this.setState({search: `${this.state.city_state}`, display: !this.state.display})
     this.props.search(this.state)
+    this.setState({search: `${this.state.city_state}`, display: !this.state.display, city_state: '', term: ''})
+
 
   }
 
