@@ -6,9 +6,11 @@ export default function userReducer(state = null, action){
     break;
 
     case 'LOGIN':
-    let localUser
-    localUser.username = action.payload
-    localStorage.setItem('token', {username: action.payload})
+    let localUser = {}
+
+    console.log(localUser);
+    console.log(JSON.stringify(localUser));
+    localUser.username = localStorage.setItem('token', JSON.stringify(action.payload))
     return localUser;
     break
 
@@ -17,9 +19,8 @@ return null;
 break;
 
 case 'USER_LOCALSTORAGE':
-let local = {}
-local.username  = localStorage.getItem('token')
-return JSON.parse(local.username)
+let local = localStorage.getItem('token')
+return JSON.parse(local)
 break;
     default:
     return state
