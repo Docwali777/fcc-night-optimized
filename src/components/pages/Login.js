@@ -15,10 +15,10 @@ handleChange = (e) =>{
   this.setState({[e.target.name]: e.target.value})
 }
 handleSubmit = (e) =>{
-
+    e.preventDefault()
   console.log('USER STATE',this.state);
   this.props.userSignedIn(this.state)
-    e.preventDefault()
+
 }
 
   render(){
@@ -45,7 +45,7 @@ handleSubmit = (e) =>{
           />
         </div>
 
-        <button type='submit'>Submit</button>
+        <button>Submit</button>
       </form>
     )
   }

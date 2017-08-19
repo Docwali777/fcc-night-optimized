@@ -10,7 +10,8 @@ constructor(props){
   super(props)
   this.state = {
     city_state: '',
-    term: ''
+    term: '',
+    search: ''
   }
 }
 
@@ -19,44 +20,64 @@ constructor(props){
   }
   formData = (e) =>{
     e.preventDefault()
-
+this.setState({search: `${this.state.city_state}`})
     this.props.search(this.state)
 
   }
+
+listingsOfNewSearch = () =>{
+  if(this.props.searchReturn !== undefined){
+    return (
+      <div>
+          <a href='/'>New Search</a>
+      </div>
+    )
+  }
+  return (
+    <form onSubmit={this.formData}>
+      <div className='form-group'>
+        <input
+          className='form-control'
+          placeholder= 'search by city,state'
+          onChange={this.search}
+          name='city_state'
+          value={this.state.city_state}
+        />
+      </div>
+
+      <div className='form-group'>
+        <input
+          className='form-control'
+          placeholder= 'Search Term'
+          onChange={this.search}
+          name='term'
+          value={this.state.term}
+        />
+      </div>
+
+      <button className='btn btn-success'>Sumit</button>
+    </form>
+
+  )
+}
+
   render(){
+    console.log('MENU',this.props.searchReturn);
     return(
       <div>
-        <div>
-            <a href='/'>New Search</a>
-        </div>
-        <form onSubmit={this.formData}>
-          <div className='form-group'>
-            <input
-              className='form-control'
-              placeholder= 'search by city,state'
-              onChange={this.search}
-              name='city_state'
-              value={this.state.city_state}
-            />
-          </div>
+          {this.listingsOfNewSearch()}
 
-          <div className='form-group'>
-            <input
-              className='form-control'
-              placeholder= 'Search Term'
-              onChange={this.search}
-              name='term'
-              value={this.state.term}
-            />
-          </div>
-
-          <button className='btn btn-success'>Sumit</button>
-        </form>
-        {this.state.city_state !== '' ? <p>Searches in {this.state.city_state} for {this.state.term}</p> : false}
+              {this.state.city_state !== '' ? <p>Searches in {this.state.search} </p> : false}
         <hr />
         <Business_Listings />
       </div>
     )
   }
 }
-export default connect(null, actions)(Form_For_Location)
+function mapStateToProps(state){
+  return {
+    searchReturn: state.business[0]
+  }
+}
+
+export default connect(mapStateToProps, actions)(Form_For_Location)

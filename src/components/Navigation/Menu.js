@@ -22,9 +22,6 @@ logout = () =>{
 this.props.logOut()
 }
 
-updateStateOfGoing = () =>{
-
-}
 
   render(){
 
@@ -32,9 +29,9 @@ updateStateOfGoing = () =>{
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-      <LinkContainer to='/'>
-         <NavItem onClick={this.updateStateOfGoing()} to="/">Let's Go Out</NavItem>
-      </LinkContainer>
+
+         <Link onClick={this.props.initialState()} to="/">Let's Go Out</Link>
+
      </Navbar.Brand>
 
      <Navbar.Toggle />
@@ -63,7 +60,8 @@ updateStateOfGoing = () =>{
 
 function mapStateToProps(state){
   return {
-    user: state.user
+    user: state.user,
+    searchReturn: state.business
   }
 }
 export default connect(mapStateToProps, actions)(Menu)

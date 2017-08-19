@@ -15,7 +15,7 @@ class Listing extends Component {
 
 
 componentDidMount(){
-this.setGoingStatus()
+(this.setGoingStatus())
 }
 
 
