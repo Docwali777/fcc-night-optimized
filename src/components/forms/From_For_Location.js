@@ -22,50 +22,48 @@ constructor(props){
   }
   formData = (e) =>{
     e.preventDefault()
-    this.props.search(this.state)
-    this.setState({search: `${this.state.city_state}`, display: !this.state.display, city_state: '', term: ''})
-
-
+     this.props.search(this.state)
+     this.setState({search: `${this.state.city_state}`, display: !this.state.display, city_state: '', term: ''})
   }
 
-display = () =>{
-  this.setState({display: !this.state.display})
-  this.props.initialState()
-}
+  display = () =>{
+    this.setState({display: !this.state.display})
+    this.props.initialState()
+  }
 
   render(){
     return(
       <div>
-      { this.state.display ?  <div>
-            <Link to='/'><button onClick={()=> this.display()} >New Search</button></Link>
-        </div> :
-        <form onSubmit={this.formData}>
-          <div className='form-group'>
-            <input
-              className='form-control'
-              placeholder= 'search by city,state'
-              onChange={this.search}
-              name='city_state'
-              value={this.state.city_state}
-            />
-          </div>
+        { this.state.display ?  <div>
+              <Link to='/'><button onClick={()=> this.display()} >New Search</button></Link>
+          </div> :
+          <form onSubmit={this.formData}>
+            <div className='form-group'>
+              <input
+                className='form-control'
+                placeholder= 'search by city,state'
+                onChange={this.search}
+                name='city_state'
+                value={this.state.city_state}
+              />
+            </div>
 
-          <div className='form-group'>
-            <input
-              className='form-control'
-              placeholder= 'Search Term'
-              onChange={this.search}
-              name='term'
-              value={this.state.term}
-            />
-          </div>
+            <div className='form-group'>
+              <input
+                className='form-control'
+                placeholder= 'Search Term'
+                onChange={this.search}
+                name='term'
+                value={this.state.term}
+              />
+            </div>
 
-          <button className='btn btn-success'>Sumit</button>
-        </form>}
-        {this.state.city_state !== '' ? <p>Searches in {this.state.search} </p> : false}
-        <hr />
-        <Business_Listings />
-      </div>
+            <button className='btn btn-success'>Sumit</button>
+          </form>}
+          {this.state.city_state !== '' ? <p>Searches in {this.state.search} </p> : false}
+          <hr />
+          <Business_Listings />
+        </div>
     )
   }
 }
