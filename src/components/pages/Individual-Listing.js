@@ -20,11 +20,13 @@ this.setGoingStatus()
 
 
 setGoingStatus =() =>{
+
 this.props.going.map(i =>{
 if(i.id == this.props.id){
 this.setState({likes: i.isGoing, isGoing: !this.state.isGoing})
 }
 })
+
 }
 
 isGoing = () =>{

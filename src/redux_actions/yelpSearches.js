@@ -3,6 +3,7 @@ import axios from 'axios'
 export function search(search) {
   return dispatch => {
     axios.post('/api/yelp/search', search).then(info => {
+
       dispatch({type: 'BUSINESS_SEARCH', payload: info.data.businesses})
     }).catch(e => {
       console.log('Error posting to yelp search', e);
@@ -30,6 +31,7 @@ export function initialState(){
   return dispatch =>{
     axios.get('/api/yelp/initialState')
       .then(allGoing =>{
+        console.log('LOCAl',  localStorage.getItem("token"))
         dispatch({
           type: 'INITIAL_STATE',
           payload: allGoing.data
@@ -43,11 +45,12 @@ export function userSignedIn(user){
   return dispatch =>{
     axios.post('/register', user)
       .then(user =>{
-        console.log(user.data);
+        console.log('USER Log Actions',user.data.username);
         if(user.data.message){
         return   console.log('there was an error with loggin in');
 
         }
+          localStorage.setItem("token", JSON.stringify(user.data.username))
         dispatch({type: 'USER_SIGNED_IN', payload: user.data})
       })
   }
@@ -64,5 +67,12 @@ export function logOut(){
       }).catch(e =>{
         console.log('error loggin out');
       })
+  }
+}
+export function USER_LOCALSTORAGE(){
+  const local = localStorage.getItem('token')
+  return {
+    type: 'USER_LOCALSTORAGE',
+    payload: local
   }
 }

@@ -4,6 +4,7 @@ const path = require('path');
 const PORT  = process.env.PORT || 3000
 const passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+const axios = require('axios');
 const keys = require('./PASSWORDS/keys')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -40,38 +41,25 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-
-
-
-
-
-const User = require('./MODELS/user')
-
-app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true }));
+app.use(require('cookie-session')({
+  name: 'keyboard cat',
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+  resave: false,
+  saveUninitialized: false,
+   keys: ['djckhkshslhafsdjkhfasjkhdfkjlds']}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+const User = require('./MODELS/user')
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req, res, next)=>{
-  res.locals = {
-    user: req.user
-  }
-  next()
-})
-
-
 //ROUTES
-require('./ROUTES/api_yelp_search')(app)
 require('./ROUTES/authRoutes')(app)
+require('./ROUTES/api_yelp_search')(app)
 
 
-app.get('*', (req, res)=>{
-console.log(req.user);
+app.get('/*', (req, res)=>{
   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 })
 

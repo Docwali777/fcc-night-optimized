@@ -17,9 +17,9 @@ class Business_Listings extends Component {
   }
 
   viewListingsWithPeopleGoing = () => {
+
     return (
       <div>
-        New Search
         {this.props.searchReturn.map(i => {
           return (
             <div key={i.id}>
@@ -33,7 +33,9 @@ class Business_Listings extends Component {
   }
 
   render() {
-    console.log('THIS PROPS',this.props.searchReturn);
+      if(localStorage.getItem('token')){
+localStorage.getItem('token');
+      }
     if (this.props.searchReturn[0]) {
 return this.viewListingsWithPeopleGoing()
 
@@ -44,6 +46,6 @@ return this.viewListingsWithPeopleGoing()
 }
 }
 function mapStateToProps(state) {
-  return {searchReturn: state.business, going: state.going}
+  return {searchReturn: state.business, going: state.going, user: state.user}
 }
 export default connect(mapStateToProps, actions)(Business_Listings)

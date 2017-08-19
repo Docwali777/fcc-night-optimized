@@ -16,12 +16,12 @@ handleChange = (e) =>{
 }
 handleSubmit = (e) =>{
     e.preventDefault()
-  console.log('USER STATE',this.state);
   this.props.userSignedIn(this.state)
 
 }
 
   render(){
+
     return(
       <form onSubmit={this.handleSubmit}>
 

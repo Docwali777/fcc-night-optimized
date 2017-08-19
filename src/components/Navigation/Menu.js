@@ -8,9 +8,12 @@ import {connect} from 'react-redux'
 import * as actions from '../../redux_actions/yelpSearches'
 
 class Menu extends Component{
-
+componentDidMount(){
+  console.log(this.props.USER_LOCALSTORAGE());
+}
 
 loggedIn = () =>{
+
   if(this.props.user === null){
     return <NavItem  href="/login">Login</NavItem>
   }
@@ -22,16 +25,19 @@ logout = () =>{
 this.props.logOut()
 }
 
+updateStateOfGoing = () =>{
+
+}
 
   render(){
-
+console.log(this.props);
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-
-         <Link onClick={this.props.initialState()} to="/">Let's Go Out</Link>
-
+      <LinkContainer to='/'>
+         <Link onClick={this.updateStateOfGoing()} to="/">Let's Go Out</Link>
+      </LinkContainer>
      </Navbar.Brand>
 
      <Navbar.Toggle />
@@ -60,8 +66,7 @@ this.props.logOut()
 
 function mapStateToProps(state){
   return {
-    user: state.user,
-    searchReturn: state.business
+    user: state.user
   }
 }
 export default connect(mapStateToProps, actions)(Menu)

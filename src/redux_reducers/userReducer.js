@@ -9,6 +9,11 @@ case 'LOGGING_OUT':
 return null;
 break;
 
+case 'USER_LOCALSTORAGE':
+let local = {}
+local.username  = localStorage.getItem('token')
+return local.username
+break;
     default:
     return state
   }
