@@ -9,7 +9,7 @@ import * as actions from '../../redux_actions/yelpSearches'
 
 class Menu extends Component{
 componentDidMount(){
-  console.log(this.props.USER_LOCALSTORAGE());
+this.props.USER_LOCALSTORAGE();
 }
 
 loggedIn = () =>{

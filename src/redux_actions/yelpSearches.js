@@ -41,7 +41,7 @@ export function initialState(){
       })
   }
 }
-export function userSignedIn(user){
+export function userRegistration(user){
   return dispatch =>{
     axios.post('/register', user)
       .then(user =>{
@@ -51,7 +51,7 @@ export function userSignedIn(user){
 
         }
           localStorage.setItem("token", JSON.stringify(user.data.username))
-        dispatch({type: 'USER_SIGNED_IN', payload: user.data})
+        dispatch({type: 'USER_REGISTRATION', payload: user.data})
       })
   }
 }
@@ -59,7 +59,7 @@ export function logOut(){
   return dispatch =>{
     axios.get('/logout')
       .then(log =>{
-        console.log(log);
+      localStorage.setItem('token', JSON.parse(null))
         dispatch({
           type: 'LOGGING_OUT',
           payload: log
@@ -74,5 +74,18 @@ export function USER_LOCALSTORAGE(){
   return {
     type: 'USER_LOCALSTORAGE',
     payload: local
+  }
+}
+export function userLogin(user){
+
+  return dispatch =>{
+
+    axios.post('/login', user)
+      .then(userLogin =>{
+        dispatch({
+          type: 'LOGIN',
+          payload: userLogin.data
+        })
+      })
   }
 }

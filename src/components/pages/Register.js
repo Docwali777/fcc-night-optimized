@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import * as actions from '../../redux_actions/yelpSearches'
 import { connect } from 'react-redux'
 
-class Login extends Component{
+class Register extends Component{
 constructor(props){
   super(props)
   this.state = {
@@ -16,7 +16,7 @@ handleChange = (e) =>{
 }
 handleSubmit = (e) =>{
     e.preventDefault()
-  this.props.userLogin(this.state)
+  this.props.userRegistration(this.state)
 
 }
 
@@ -24,7 +24,7 @@ handleSubmit = (e) =>{
 
     return(
       <form onSubmit={this.handleSubmit}>
-<label>Login</label>
+<label>Register</label>
         <div className='form-group'>
           <input
             className='form-control'
@@ -50,4 +50,4 @@ handleSubmit = (e) =>{
     )
   }
 }
-export default connect(null, actions)(Login)
+export default connect(null, actions)(Register)

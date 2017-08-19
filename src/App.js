@@ -12,7 +12,7 @@ import Business_Listings from './components/pages/businessListings'
 //pages folder
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
-import Login from './components/pages/Login'
+import UserAuth from './components/pages/UserAuth'
 
 class App extends Component{
 
@@ -29,7 +29,7 @@ class App extends Component{
             <Route exact path='/' component={Form_For_Location} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <Route path='/login' component={this.props.user == null  ? Login : Form_For_Location} />
+            <Route path='/login' component={this.props.user == null  ? UserAuth : Form_For_Location} />
             <Route path='/logout' component={About} />
         </div>
         </div>
