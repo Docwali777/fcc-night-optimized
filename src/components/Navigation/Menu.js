@@ -36,7 +36,7 @@ console.log(this.props);
    <Navbar.Header>
      <Navbar.Brand>
       <LinkContainer to='/'>
-         <Link onClick={this.updateStateOfGoing()} to="/">Let's Go Out</Link>
+         <Link to="/" onClick={this.updateStateOfGoing()} >Let's Go Out</Link>
       </LinkContainer>
      </Navbar.Brand>
 
