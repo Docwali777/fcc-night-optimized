@@ -5,7 +5,7 @@ export default function goingReducer(state= [], action){
     console.log('goingReducer STATE', state);
     console.log('goingReducer ACTION',action.payload);
 
-    return [...state, ...action.payload]
+    return action.payload
     break
 
     case 'POST_IS_GOING':
