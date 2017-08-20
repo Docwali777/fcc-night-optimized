@@ -7,9 +7,8 @@ import * as actions from '../../redux_actions/yelpSearches'
 class Business_Listings extends Component {
 
   componentDidMount() {
-      this.props.initialState()
+    this.props.initialState()
   }
-
 
   viewListingsWithPeopleGoing = () => {
 
@@ -28,18 +27,17 @@ class Business_Listings extends Component {
   }
 
   render() {
-      if(localStorage.getItem('token')){
-localStorage.getItem('token');
-      }
+
     if (this.props.searchReturn[0]) {
-return this.viewListingsWithPeopleGoing()
+      return this.viewListingsWithPeopleGoing()
 
     } else {
-  return <p></p>
+      return <p></p>
     }
 
+  }
 }
-}
+
 function mapStateToProps(state) {
   return {searchReturn: state.business, going: state.going, user: state.user}
 }

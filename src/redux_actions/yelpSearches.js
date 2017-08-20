@@ -69,6 +69,7 @@ export function userLogin(user){
 
     axios.post('/login', user)
       .then(userLogin =>{
+        localStorage.setItem("token", JSON.stringify(userLogin.data))
         dispatch({
           type: 'LOGIN',
           payload: userLogin.data
@@ -93,7 +94,7 @@ export function userRegistration(user){
           })
 
         }
-          // localStorage.setItem("token", JSON.stringify(user.data.username))
+          localStorage.setItem("token", JSON.stringify(user.data.username))
         dispatch({type: 'USER_REGISTRATION', payload: user.data})
       }).catch(e =>console.log(e))
   }

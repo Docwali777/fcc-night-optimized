@@ -8,9 +8,10 @@ import {connect} from 'react-redux'
 import * as actions from '../../redux_actions/yelpSearches'
 
 class Menu extends Component{
-componentDidMount(){
-this.props.USER_LOCALSTORAGE();
-}
+
+  componentDidMount(){
+        this.props.USER_LOCALSTORAGE()
+  }
 
 loggedIn = () =>{
 

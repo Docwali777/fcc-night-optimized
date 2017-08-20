@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux'
+
 import Register from './Register'
 import Login from './Login'
+import * as actions from '../../redux_actions/yelpSearches'
 
 class UserAuth extends Component{
 constructor(){
@@ -9,6 +12,12 @@ constructor(){
   this.state = {
     registeredUser: true
   }
+}
+componentDidMount(){
+      this.props.USER_LOCALSTORAGE()
+}
+componentWillMount(){
+      this.props.USER_LOCALSTORAGE()
 }
 
 previouslyRegisterUser = () =>{
@@ -39,4 +48,4 @@ function mapStateToProps(state){
     userAuthErrors: state.userAuthErrors
   }
 }
-export default UserAuth
+export default connect(null, actions)(UserAuth)

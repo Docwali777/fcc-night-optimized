@@ -5,10 +5,7 @@ export default function userReducer(state = '', action){
     break;
 
     case 'LOGIN':
-    let localUser = {}
-
-    localUser.username = localStorage.setItem('token', JSON.stringify(action.payload))
-    return localUser;
+    return action.payload
     break
 
 case 'LOGGING_OUT':
