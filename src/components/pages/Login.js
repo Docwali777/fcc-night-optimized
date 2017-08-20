@@ -45,7 +45,7 @@ this.setState({username: '', password: '' })
           />
         </div>
 
-        <button>Submit</button>
+        <button className='btn btn-primary'>Submit</button>
         <p>{this.props.userAuthErrors}</p>
       </form>
     )

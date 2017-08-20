@@ -1,4 +1,4 @@
-export default function userReducer(state = null, action){
+export default function userReducer(state = '', action){
   switch(action.type){
     case 'USER_REGISTRATION':
     return action.payload.username

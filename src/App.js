@@ -10,7 +10,7 @@ import Form_For_Location from './components/forms/From_For_Location'
 import Business_Listings from './components/pages/businessListings'
 
 //pages folder
-import About from './components/pages/About'
+import Home from './components/pages/Home'
 import Contact from './components/pages/Contact'
 import UserAuth from './components/pages/UserAuth'
 
@@ -25,11 +25,11 @@ class App extends Component{
           <Menu />
         <div className='container'>
 
-            <Route exact path='/' component={Form_For_Location} />
-            <Route path='/about' component={About} />
+            <Route exact path='/search' component={Form_For_Location} />
+            <Route exact path='/' component={Home} />
             <Route path='/contact' component={Contact} />
             <Route path='/login' component={this.props.user == null  ? UserAuth : Form_For_Location} />
-            <Route path='/logout' component={About} />
+            <Route path='/logout' component={Home} />
         </div>
         </div>
       </Router>

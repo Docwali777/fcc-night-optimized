@@ -24,7 +24,7 @@ this.setState({username: '',password: ''})
 
     return(
       <form onSubmit={this.handleSubmit}>
-<h3>Register New User</h3>
+<h3>Register </h3>
         <div className='form-group'>
           <input
             className='form-control'

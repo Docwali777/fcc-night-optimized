@@ -33,4 +33,10 @@ return (
 
 }
 }
+
+function mapStateToProps(state){
+  return {
+    userAuthErrors: state.userAuthErrors
+  }
+}
 export default UserAuth

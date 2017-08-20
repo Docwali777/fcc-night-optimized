@@ -34,8 +34,8 @@ updateStateOfGoing = () =>{
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
      <Navbar.Brand>
-      <LinkContainer to='/'>
-         <Link to="/" onClick={this.updateStateOfGoing()} >Let's Go Out</Link>
+      <LinkContainer to='/search'>
+         <Link to="/search" onClick={this.updateStateOfGoing()} >Let's Go Out</Link>
       </LinkContainer>
      </Navbar.Brand>
 
@@ -43,8 +43,8 @@ updateStateOfGoing = () =>{
    </Navbar.Header>
    <Navbar.Collapse>
      <Nav>
-       <LinkContainer to='/about'>
-         <NavItem eventKey={1} href="/about">About</NavItem>
+       <LinkContainer to='/'>
+         <NavItem eventKey={1} href="/">Home</NavItem>
        </LinkContainer>
 
       <LinkContainer to='/contact'>
