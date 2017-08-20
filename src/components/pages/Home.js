@@ -13,7 +13,7 @@ class About extends Component {
         <div>
           <h1>
             Build a Nightlife Coordination App</h1>
-          <h3>Obectives</h3>
+          <h3>Objectives</h3>
           <ul>
             <li>
               Build a full stack JavaScript app that is functionally similar to this: <a>http://whatsgoinontonight.herokuapp.com/ </a> and deploy it to Heroku.</li>
