@@ -31,8 +31,7 @@ export function initialState(){
   return dispatch =>{
     axios.get('/api/yelp/initialState')
       .then(allGoing =>{
-        console.log('LOCAl',  localStorage.getItem("token"))
-        dispatch({
+            dispatch({
           type: 'INITIAL_STATE',
           payload: allGoing.data
         })
@@ -41,20 +40,8 @@ export function initialState(){
       })
   }
 }
-export function userRegistration(user){
-  return dispatch =>{
-    axios.post('/register', user)
-      .then(user =>{
-        console.log('USER Log Actions',user.data.username);
-        if(user.data.message){
-        return   console.log('there was an error with loggin in');
 
-        }
-          localStorage.setItem("token", JSON.stringify(user.data.username))
-        dispatch({type: 'USER_REGISTRATION', payload: user.data})
-      })
-  }
-}
+
 export function logOut(){
   return dispatch =>{
     axios.get('/logout')
@@ -86,6 +73,28 @@ export function userLogin(user){
           type: 'LOGIN',
           payload: userLogin.data
         })
+      }).catch(e =>{
+        dispatch({
+          type: 'ERROR_WITH_REGISTRATION_OR_LOGIN',
+          payload: 'Please check username and/or password'
+        })
       })
+  }
+}
+export function userRegistration(user){
+  return dispatch =>{
+    axios.post('/register', user)
+      .then(user =>{
+
+        if(user.data.message){
+        return  dispatch({
+            type: 'ERROR_WITH_REGISTRATION',
+            payload: user.data.message
+          })
+
+        }
+          // localStorage.setItem("token", JSON.stringify(user.data.username))
+        dispatch({type: 'USER_REGISTRATION', payload: user.data})
+      }).catch(e =>console.log(e))
   }
 }

@@ -17,7 +17,6 @@ import UserAuth from './components/pages/UserAuth'
 class App extends Component{
 
   render(){
-    console.log('APP',this.props.user);
     return(
       <div>
 

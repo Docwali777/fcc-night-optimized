@@ -30,7 +30,6 @@ updateStateOfGoing = () =>{
 }
 
   render(){
-console.log(this.props);
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>

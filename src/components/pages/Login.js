@@ -17,14 +17,14 @@ handleChange = (e) =>{
 handleSubmit = (e) =>{
     e.preventDefault()
   this.props.userLogin(this.state)
-
+this.setState({username: '', password: '' })
 }
 
   render(){
 
     return(
       <form onSubmit={this.handleSubmit}>
-<label>Login</label>
+<h3>Login</h3>
         <div className='form-group'>
           <input
             className='form-control'
@@ -46,8 +46,15 @@ handleSubmit = (e) =>{
         </div>
 
         <button>Submit</button>
+        <p>{this.props.userAuthErrors}</p>
       </form>
     )
   }
 }
-export default connect(null, actions)(Login)
+function mapStateToProps(state){
+  return {
+    userAuthErrors: state.userAuthErrors
+  }
+}
+
+export default connect(mapStateToProps, actions)(Login)

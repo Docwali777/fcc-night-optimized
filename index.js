@@ -41,8 +41,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-app.use(require('cookie-session')({
-  name: 'keyboard cat',
+app.use(require('express-session')({
+  secret: 'keyboard cat',
   maxAge: 30 * 24 * 60 * 60 * 1000,
   resave: false,
   saveUninitialized: false,
@@ -51,6 +51,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const User = require('./MODELS/user')
+passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
