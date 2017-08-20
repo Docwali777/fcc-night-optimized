@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom'
 import {LinkContainer} from 'react-router-bootstrap'
 import {Button} from 'react-bootstrap'
 
-class About extends Component {
+class Home extends Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         <LinkContainer to='/search'>
@@ -36,4 +37,4 @@ class About extends Component {
     )
   }
 }
-export default About
+export default Home

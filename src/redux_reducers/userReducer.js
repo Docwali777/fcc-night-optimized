@@ -1,4 +1,4 @@
-export default function userReducer(state = '', action){
+export default function userReducer(state = null, action){
   switch(action.type){
     case 'USER_REGISTRATION':
     return action.payload.username
@@ -13,8 +13,8 @@ return null;
 break;
 
 case 'USER_LOCALSTORAGE':
-let local = localStorage.getItem('token')
-return JSON.parse(local)
+console.log('USER_LOCALSTORAGE',action.payload);
+return JSON.parse(action.payload)
 break;
     default:
     return state

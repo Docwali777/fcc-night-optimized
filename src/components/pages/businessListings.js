@@ -15,15 +15,10 @@ constructor(){
   componentWillMount() {
         this.props.initialState()
         this.forceUpdate()
- //      this.setState({going: this.props.going})
- // this.whoHasAlreadyPlannedOnGoing()
- // console.log('this.state.going', this.state.going);
+
   }
 
-whoHasAlreadyPlannedOnGoing(){
 
-
-}
   viewListingsWithPeopleGoing = () => {
 
     return (
@@ -41,7 +36,6 @@ whoHasAlreadyPlannedOnGoing(){
   }
 
   render() {
-
     if (this.props.searchReturn[0]) {
       return this.viewListingsWithPeopleGoing()
 

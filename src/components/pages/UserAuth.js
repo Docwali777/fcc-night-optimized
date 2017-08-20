@@ -13,12 +13,7 @@ constructor(){
     registeredUser: true
   }
 }
-componentDidMount(){
-      this.props.USER_LOCALSTORAGE()
-}
-componentWillMount(){
-      this.props.USER_LOCALSTORAGE()
-}
+
 
 previouslyRegisterUser = () =>{
 if(this.state.registeredUser){
@@ -34,7 +29,7 @@ registerNewUser = () =>{
   render(){
 return (
   <div>
-    <button onClick={()=>this.registerNewUser()} className='btn btn-info'>Register New User</button>
+    <button onClick={()=>this.registerNewUser()} className='btn btn-info'>{!this.state.registeredUser ? 'Login' : 'Register New User'}</button>
     {this.previouslyRegisterUser()}
 
   </div>
