@@ -35,7 +35,7 @@ constructor(props){
     return(
       <div>
         { this.state.display ?  <div>
-              <Link to='/search'><button onClick={()=> this.display()} >New Search</button></Link>
+              <Link to='/search'><button className='btn btn-primary' onClick={()=> this.display()} >New Search</button></Link>
           </div> :
           <form onSubmit={this.formData}>
             <div className='form-group'>

@@ -10,11 +10,6 @@ class Business_Listings extends Component {
       this.props.initialState()
   }
 
-  empty = () => {
-    return (
-      <div>Search</div>
-    )
-  }
 
   viewListingsWithPeopleGoing = () => {
 
@@ -40,7 +35,7 @@ localStorage.getItem('token');
 return this.viewListingsWithPeopleGoing()
 
     } else {
-  return this.empty()
+  return <p></p>
     }
 
 }
