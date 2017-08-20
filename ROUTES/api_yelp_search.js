@@ -94,14 +94,33 @@ module.exports = (app) => {
           search.create({id: going}, (err, going)=>{
 
             going.isGoing += 1
-            going.save()
-            res.send(going)
+            going.save((err, allGoing)=>{
+              if(err)console.log('DID NOT SAVE',err);
+              else {
+                search.find({}, (err, allGoing)=>{
+                  if(err){console.log('Cant Find all documents', err)}
+                  console.log(allGoing);
+                  res.send(allGoing)
+                })
+              }
+            })
+
+
           })
         } else {
             isGoing.isGoing += 1
-            isGoing.save()
+            isGoing.save((err, allGoing)=>{
+              if(err)console.log('Did not find or propery and to DB',err);
+              else {
+                search.find({}, (err, allGoing)=>{
+                  if(err){console.log('Cant Find all documents', err)}
+                  console.log(allGoing);
+                  res.send(allGoing)
+                })
+              }
+            })
 
-            res.send(isGoing)
+
         }
     })
 
@@ -116,9 +135,17 @@ module.exports = (app) => {
       if (err) {console.log('err with database', err)}
         else {
             isGoing.isGoing -= 1
-            isGoing.save()
+            isGoing.save((err, notGoing)=>{
+              if(err)console.log('did not remove from database', err);
+              else {
+                search.find({}, (err, allGoing)=>{
+                  if(err){console.log('Cant Find all documents', err)}
+                  console.log(allGoing);
+                  res.send(allGoing)
+                })
+              }
+            })
 
-            res.send(isGoing)
         }
     })
 

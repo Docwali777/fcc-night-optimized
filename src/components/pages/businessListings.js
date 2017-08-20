@@ -5,11 +5,25 @@ import Listing from './Individual-Listing'
 import * as actions from '../../redux_actions/yelpSearches'
 
 class Business_Listings extends Component {
+constructor(){
+  super()
+  this.state = {
+    going: []
+  }
+}
 
-  componentDidMount() {
-    this.props.initialState()
+  componentWillMount() {
+        this.props.initialState()
+        this.forceUpdate()
+ //      this.setState({going: this.props.going})
+ // this.whoHasAlreadyPlannedOnGoing()
+ // console.log('this.state.going', this.state.going);
   }
 
+whoHasAlreadyPlannedOnGoing(){
+
+
+}
   viewListingsWithPeopleGoing = () => {
 
     return (

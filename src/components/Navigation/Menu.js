@@ -9,7 +9,7 @@ import * as actions from '../../redux_actions/yelpSearches'
 
 class Menu extends Component{
 
-  componentDidMount(){
+  componentMount(){
         this.props.USER_LOCALSTORAGE()
   }
 
@@ -27,10 +27,11 @@ this.props.logOut()
 }
 
 updateStateOfGoing = () =>{
-
+// this.props.initialState()
 }
 
   render(){
+    console.log('THIS_PROPS_GOING_IN_MENU',this.props.going);
     return (
       <Navbar inverse collapseOnSelect >
    <Navbar.Header>
