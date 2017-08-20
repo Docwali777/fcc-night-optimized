@@ -53,7 +53,7 @@ return   <Button bsStyle='default' bsSize='small'>{this.state.likes}</Button>
 
 
   render() {
-console.log(this.props);
+
     return (
 
       <Grid>
