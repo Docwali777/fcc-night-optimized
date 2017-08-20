@@ -13,10 +13,10 @@ class About extends Component {
         <div>
           <h1>
             Build a Nightlife Coordination App</h1>
-          <h3>Obections</h3>
+          <h3>Obectives</h3>
           <ul>
             <li>
-              Build a full stack JavaScript app that is functionally similar to this: http://whatsgoinontonight.herokuapp.com/ and deploy it to Heroku.</li>
+              Build a full stack JavaScript app that is functionally similar to this: <a>http://whatsgoinontonight.herokuapp.com/ </a> and deploy it to Heroku.</li>
             <hr/>
             <li>*** Modfication - As an unauthenticated user, I can search any location in using the Yelp API (location and search term) - and - I can add myself and as many peope as I want to the list</li>
 
