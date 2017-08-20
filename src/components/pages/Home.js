@@ -5,7 +5,6 @@ import {Button} from 'react-bootstrap'
 
 class Home extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <LinkContainer to='/search'>

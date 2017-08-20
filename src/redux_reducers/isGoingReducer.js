@@ -2,9 +2,6 @@ export default function goingReducer(state= [], action){
   switch(action.type){
 
     case 'INITIAL_STATE':
-    console.log('goingReducer STATE', state);
-    console.log('goingReducer ACTION',action.payload);
-
     return action.payload
     break
 

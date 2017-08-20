@@ -7,14 +7,10 @@ import * as actions from '../../redux_actions/yelpSearches'
 class Business_Listings extends Component {
 constructor(){
   super()
-  this.state = {
-    going: []
-  }
 }
 
   componentWillMount() {
         this.props.initialState()
-        this.forceUpdate()
 
   }
 

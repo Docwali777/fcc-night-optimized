@@ -58,7 +58,6 @@ export function logOut(){
 }
 export function USER_LOCALSTORAGE(){
   const local = localStorage.getItem('token')
-  console.log('LOCAL STORGE',local);
   return {
     type: 'USER_LOCALSTORAGE',
     payload: local
